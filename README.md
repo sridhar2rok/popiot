@@ -1,2 +1,2 @@
 # popiot
-Iot demonstrator simulating Industry 4.0 
+Iot demonstrator simulating Industry 4.0 Environment
