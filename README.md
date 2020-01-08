@@ -1,6 +1,8 @@
 # popiot
 Iot demonstrator simulating Industry 4.0 Environment
 
+Connected Popcorn Machine
+
 A)	For setting up node-red /grafna /influx db
 
 1.	Easy Way 
