@@ -1,46 +1,62 @@
-# popiot
-Iot demonstrator simulating Industry 4.0 Environment
+# Popiot: IoT Demonstrator Simulating an Industry 4.0 Environment
 
-Connected Popcorn Machine
+**Connected Popcorn Machine**
 
-A)	For setting up node-red /grafna /influx db
+---
 
-1.	Easy Way 
-Download the below image, Load it on SD card. (Here all the tools  mosquito broker, node-red, grafana, Influxdb has been installed) Easy to start for Experimentation. Follow the below video for Explaination of the tools and Setting it up.
-ISo image:  https://drive.google.com/file/d/1MnJICYFqn8DwxOBQZDNneHJvXCrv7E-D/view
-#255 Node-Red, InfluxDB, and Grafana Tutorial on a Raspberry Pi
-https://www.youtube.com/watch?v=JdV4x925au0
-http://www.sensorsiot.org/node-red-infuxdb-grafana-installation/
+### A) Setting up Node-Red, Grafana, and InfluxDB
 
-2.	Or use the peter’s script
-Use it only if More Customization is needed.
-https://www.youtube.com/watch?time_continue=626&v=a6UMrdd2_SY&feature=emb_logo
-https://tech.scargill.net/
-Follow the above video for Explaination.
+**1. Easy Setup**  
+To quickly get started, download the image below and load it onto your SD card. This image comes pre-installed with all necessary tools, including Mosquitto Broker, Node-Red, Grafana, and InfluxDB, for seamless experimentation.  
+- **ISO Image**: [Download here](https://drive.google.com/file/d/1MnJICYFqn8DwxOBQZDNneHJvXCrv7E-D/view)  
+- **Video Tutorial**: [Node-Red, InfluxDB, and Grafana on Raspberry Pi](https://www.youtube.com/watch?v=JdV4x925au0)  
+- **Installation Guide**: [Sensors IoT Guide](http://www.sensorsiot.org/node-red-infuxdb-grafana-installation/)
 
-B)	Making Raspberry pi as a Wifi Access Point 
-Follow both Instruction and video for clear understanding.
-https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md
-https://www.youtube.com/watch?v=4QFrMum4_yE
+**2. Advanced Setup with Peter’s Script**  
+If you require more customization, you can use Peter’s script to set up your environment.  
+- **Video Tutorial**: [Watch here](https://www.youtube.com/watch?time_continue=626&v=a6UMrdd2_SY&feature=emb_logo)  
+- **Script and Documentation**: [Peter's Blog](https://tech.scargill.net/)  
 
-C)	Mounting and unmounting External hard drive (optional for influx db  storage).
-https://www.raspberrypi.org/documentation/configuration/external-storage.md
+---
 
+### B) Configuring Raspberry Pi as a Wi-Fi Access Point
 
-D)	Arduino Code for ESP8266. 
+Follow the instructions and video provided to set up your Raspberry Pi as a Wi-Fi Access Point.  
+- **Official Documentation**: [Raspberry Pi Access Point Setup](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md)  
+- **Video Tutorial**: [Access Point Setup Video](https://www.youtube.com/watch?v=4QFrMum4_yE)  
 
-https://github.com/sridhar2rok/popiot
+---
 
+### C) Mounting and Unmounting an External Hard Drive (Optional for InfluxDB Storage)
 
-E)	Passwords for Dashboards
+If you want to use an external hard drive for InfluxDB storage, follow the instructions below:  
+- **Official Documentation**: [External Storage Setup](https://www.raspberrypi.org/documentation/configuration/external-storage.md)  
 
-Tool	User	Password
-Raspberry	Pi	raspberry
-Node-Red Flows	admin	admin
-Node-Red UI	User	user
-InfluxDB User	Pi	raspberry
-Grafana	admin	admin
-	
-F)	Hardware Part and Explanation 
+---
 
-Refer the below video
+### D) Arduino Code for ESP8266
+
+You can find the necessary Arduino code for the ESP8266 at the following GitHub repository:  
+- **GitHub Repository**: [Popiot Arduino Code](https://github.com/sridhar2rok/popiot)
+
+---
+
+### E) Dashboard Access Credentials
+
+Below are the login credentials for accessing the various tools:
+
+| Tool              | User      | Password   |
+|-------------------|-----------|------------|
+| Raspberry Pi      | Pi        | raspberry  |
+| Node-Red Flows    | admin     | admin      |
+| Node-Red UI       | User      | user       |
+| InfluxDB          | Pi        | raspberry  |
+| Grafana           | admin     | admin      |
+
+---
+
+### F) Hardware Setup and Explanation
+
+For an in-depth look at the hardware setup and explanation, refer to the following video:  
+- **Video Tutorial**: [Hardware Explanation Video]  
+
