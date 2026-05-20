@@ -1,62 +1,79 @@
-# Popiot: IoT Demonstrator Simulating an Industry 4.0 Environment
+# Popiot — Industry 4.0 IoT Demonstrator
 
-**Connected Popcorn Machine**
-
----
-
-### A) Setting up Node-Red, Grafana, and InfluxDB
-
-**1. Easy Setup**  
-To quickly get started, download the image below and load it onto your SD card. This image comes pre-installed with all necessary tools, including Mosquitto Broker, Node-Red, Grafana, and InfluxDB, for seamless experimentation.  
-- **ISO Image**: [Download here](https://drive.google.com/file/d/1MnJICYFqn8DwxOBQZDNneHJvXCrv7E-D/view)  
-- **Video Tutorial**: [Node-Red, InfluxDB, and Grafana on Raspberry Pi](https://www.youtube.com/watch?v=JdV4x925au0)  
-- **Installation Guide**: [Sensors IoT Guide](http://www.sensorsiot.org/node-red-infuxdb-grafana-installation/)
-
-**2. Advanced Setup with Peter’s Script**  
-If you require more customization, you can use Peter’s script to set up your environment.  
-- **Video Tutorial**: [Watch here](https://www.youtube.com/watch?time_continue=626&v=a6UMrdd2_SY&feature=emb_logo)  
-- **Script and Documentation**: [Peter's Blog](https://tech.scargill.net/)  
+A hands-on IoT demonstration platform built around a **Connected Popcorn Machine** that simulates real-world Industry 4.0 concepts including sensor data acquisition, MQTT messaging, cloud dashboards, and automated control.
 
 ---
 
-### B) Configuring Raspberry Pi as a Wi-Fi Access Point
+## Overview
 
-Follow the instructions and video provided to set up your Raspberry Pi as a Wi-Fi Access Point.  
-- **Official Documentation**: [Raspberry Pi Access Point Setup](https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md)  
-- **Video Tutorial**: [Access Point Setup Video](https://www.youtube.com/watch?v=4QFrMum4_yE)  
+Popiot demonstrates a complete IoT stack from embedded sensor nodes to a web-based monitoring dashboard:
 
----
-
-### C) Mounting and Unmounting an External Hard Drive (Optional for InfluxDB Storage)
-
-If you want to use an external hard drive for InfluxDB storage, follow the instructions below:  
-- **Official Documentation**: [External Storage Setup](https://www.raspberrypi.org/documentation/configuration/external-storage.md)  
+- **ESP8266/ESP32 sensor nodes** collect temperature, humidity, and distance data
+- **MQTT broker (Mosquitto)** handles publish/subscribe messaging
+- **Node-RED** processes flows and automates relay control
+- **InfluxDB** stores time-series sensor data
+- **Grafana** visualizes live and historical data on dashboards
+- **Raspberry Pi** acts as the central gateway and server
 
 ---
 
-### D) Arduino Code for ESP8266
+## Architecture
 
-You can find the necessary Arduino code for the ESP8266 at the following GitHub repository:  
-- **GitHub Repository**: [Popiot Arduino Code](https://github.com/sridhar2rok/popiot)
-
----
-
-### E) Dashboard Access Credentials
-
-Below are the login credentials for accessing the various tools:
-
-| Tool              | User      | Password   |
-|-------------------|-----------|------------|
-| Raspberry Pi      | Pi        | raspberry  |
-| Node-Red Flows    | admin     | admin      |
-| Node-Red UI       | User      | user       |
-| InfluxDB          | Pi        | raspberry  |
-| Grafana           | admin     | admin      |
+```
+[ESP8266 Sensors] --MQTT--> [Raspberry Pi]
+                                    |
+                    +---------------+---------------+
+                    |               |               |
+              [Mosquitto]     [Node-RED]       [InfluxDB]
+              (Broker)        (Automation)    (Storage)
+                                    |
+                              [Grafana]
+                              (Dashboard)
+```
 
 ---
 
-### F) Hardware Setup and Explanation
+## Tech Stack
 
-For an in-depth look at the hardware setup and explanation, refer to the following video:  
-- **Video Tutorial**: [Hardware Explanation Video]  
+| Layer | Technology |
+|---|---|
+| Microcontroller | ESP8266 (Arduino framework) |
+| Messaging | MQTT / Mosquitto Broker |
+| Flow Automation | Node-RED |
+| Time-Series DB | InfluxDB |
+| Visualization | Grafana |
+| Gateway | Raspberry Pi |
 
+---
+
+## Repository Structure
+
+```
+popiot/
+├── relayesp-esp2/          # ESP8266 relay control firmware
+├── temp_hum_distance-esp1/ # ESP8266 sensor firmware (temp/humidity/distance)
+├── node_red_flow.json      # Node-RED flow export
+├── grafana.json            # Grafana dashboard export
+```
+
+---
+
+## Getting Started
+
+### 1. Setup the Server Stack (Raspberry Pi)
+
+Install Mosquitto, Node-RED, InfluxDB, and Grafana on your Raspberry Pi. Configure Node-RED to subscribe to MQTT topics and write data to InfluxDB.
+
+### 2. Flash ESP8266 Firmware
+
+Flash the sensor firmware from `temp_hum_distance-esp1/` and the relay firmware from `relayesp-esp2/` using Arduino IDE. Update the WiFi and MQTT broker credentials in the sketch.
+
+### 3. Import Dashboards
+
+Import `node_red_flow.json` into Node-RED and `grafana.json` into Grafana to get the pre-built automation flows and dashboard.
+
+---
+
+## License
+
+MIT
